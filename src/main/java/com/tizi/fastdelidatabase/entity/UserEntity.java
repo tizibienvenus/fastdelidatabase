@@ -1,20 +1,22 @@
 package com.tizi.fastdelidatabase.entity;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
 public class UserEntity {
-	
-	@Id
-	@GeneratedValue
-	private int id;
+    
+    @Id
+    @GeneratedValue
+    private int id;
     private String firstName;
     private String lastName;
 
+    // Ajoutez un constructeur par défaut
+    public UserEntity() {
+    }
 
-
+    // Ajoutez un constructeur avec les champs
     public UserEntity(int id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;

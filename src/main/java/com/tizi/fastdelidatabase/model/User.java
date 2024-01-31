@@ -9,7 +9,8 @@ public class User {
     public User() {
         // Vous pouvez ajouter du code d'initialisation ici si nécessaire
     }
-
+    
+   
     // Constructeur avec paramètres
     public User(int id, String firstName, String lastName) {
         this.id = id;
@@ -17,7 +18,8 @@ public class User {
         this.lastName = lastName;
     }
 
-    // Getters
+    
+	// Getters
     public int getId() {
         return id;
     }

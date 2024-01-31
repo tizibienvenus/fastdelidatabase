@@ -1,3 +1,4 @@
+
 package com.tizi.fastdelidatabase.controller;
 
 import java.util.List;
@@ -13,30 +14,31 @@ import com.tizi.fastdelidatabase.service.UserService;
 import com.tizi.fastdelidatabase.entity.UserEntity;
 import com.tizi.fastdelidatabase.model.User;
 
+
 @RestController
-@CrossOrigin (origins = "*")
+@CrossOrigin(origins = "+")
+@RequestMapping("/api/users")
 public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping(value = "getAllUsers", method = RequestMethod.GET)
-	public List<User> getAllUsers(){
+	@RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
+	public List<User> getAllUsers() {
 		return userService.getAllUsers();
 	}
 	
-	@RequestMapping(value = "addUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public String addUser(@RequestBody UserEntity user) {
-		return userService.addUser(user);
-			
+	    return userService.addUser(user);
 	}
-	
-	@RequestMapping(value = "updateUser", method = RequestMethod.PUT)
+
+	@RequestMapping(value = "/updateUser", method = RequestMethod.PUT)
 	public String updateUser(@RequestBody UserEntity user) {
 		return userService.updateUser(user);
 			
 	}
 	
-	@RequestMapping(value = "deleteUser", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.DELETE)
 	public String deleteUser(@RequestBody UserEntity user) {
 		return userService.removeUser(user);
 			

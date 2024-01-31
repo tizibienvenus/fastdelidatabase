@@ -15,19 +15,25 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 	
-	public List<User> getAllUsers(){
-		try{
-			List<UserEntity> users = userRepository.findAll();
-			List<User> customUser = new ArrayList<>();
-			users.stream().forEach(e -> {
-				User user = new User();
-				customUser.add(user);
-			});
-			return customUser;
-		}catch(Exception e) {
-			throw e;
-		}
+	public List<User> getAllUsers() {
+	    try {
+	        List<UserEntity> users = userRepository.findAll();
+	        List<User> customUser = new ArrayList<>();
+
+	        users.forEach(e -> {
+	            User user = new User();
+	            user.setId(e.getId());
+	            user.setFirstName(e.getFirstName());
+	            user.setLastName(e.getLastName());
+	            customUser.add(user);
+	        });
+
+	        return customUser;
+	    } catch (Exception e) {
+	        throw e;
+	    }
 	}
+
 	
 	public String addUser(UserEntity user) {
 		try {
